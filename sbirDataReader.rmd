@@ -1,0 +1,36 @@
+---
+title: "SBIRDataReader"
+author: "Doug Ratay"
+date: "July 4, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Read in files
+
+Data is stored in json files.  Read in and see what we have.
+
+```{r message=FALSE}
+library(jsonlite)
+library(tibble)
+library(dplyr)
+library(purrr)
+
+files = list("C:/Users/dsrat/workspace/innovation/dodSBIRAwards_1.json",
+             "C:/Users/dsrat/workspace/innovation/dodSBIRAwards_2.json",
+             "C:/Users/dsrat/workspace/innovation/dodSBIRAwards_3.json",
+             "C:/Users/dsrat/workspace/innovation/dodSBIRAwards_4.json")
+
+dataTable <- files %>% map(.f=function(file) as_tibble(fromJSON(file)) %>% select(branch,award_year,woman_owned,company,pi_name,award_title,research_keywords)) %>% bind_rows
+
+
+
+glimpse(dataTable)
+
+
+```
+
+
