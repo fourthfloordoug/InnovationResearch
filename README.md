@@ -1,0 +1,1 @@
+I'm studying innovation by looking at SBIR awards and what goes to male and female PIs.  This is obviously a bit difficult since the government doesn't report that.  They only give names, but we'll give an old college try.
